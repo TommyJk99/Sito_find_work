@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 html {
-  background: rgb(242, 208, 150);
-  background: linear-gradient(
-    131deg,
-    rgba(242, 208, 150, 1) 7%,
-    rgba(108, 108, 246, 1) 100%
+  background-image: linear-gradient(
+    to right bottom,
+    #ffca84,
+    #ffb5a4,
+    #ffaed3,
+    #dab6f7,
+    #96c2ff
   );
 }
 body {
