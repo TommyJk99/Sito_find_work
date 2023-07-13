@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+html {
+  background: rgb(242, 208, 150);
+  background: linear-gradient(
+    131deg,
+    rgba(242, 208, 150, 1) 7%,
+    rgba(108, 108, 246, 1) 100%
+  );
+}
+body {
+  font-family: "Rubik", sans-serif;
+  margin: 0;
+}
+
+div[class="flexbox"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 2rem;
+}
+
+div:not(.flexbox) {
+  width: 30rem;
+  background-color: antiquewhite;
+  padding: 2rem 2rem;
+  border-radius: 10px;
+  border: 1px solid brown;
+  cursor: pointer;
+  transition: transform 500ms ease-out;
+}
+
+input[type="text"] {
+  display: block;
+  width: 16rem;
+  height: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 0.7rem;
+  background-color: antiquewhite;
+  border: 1px solid brown;
+  border-radius: 10px;
+}
+
+p {
+  margin-left: 2rem;
+  font-size: 2rem;
+  color: blue;
+  font-weight: bold;
+}
+
+span {
+  margin-left: 2rem;
+  color: blue;
+}
+
+input[type="button"] {
+  margin-left: 2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: antiquewhite;
+  border: 2px solid bLUE;
+  border-radius: 10px;
+  color: blue;
+  font-weight: bold;
+  transition: transform 500ms ease-out;
+}
+
+input[type="button"]:hover,
+div:not(.flexbox):hover {
+  transform: scale(1.05);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
