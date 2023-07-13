@@ -85,6 +85,7 @@ const jobs = [
   },
 ];
 
+/*La funzione mi prende i dati (vettore di oggetti) e me li returna nella forma desiderata*/
 function searchPosition(titleUser, locationUser) {
   const FinalResult = {};
   const results = [];
@@ -100,20 +101,44 @@ function searchPosition(titleUser, locationUser) {
   }
   FinalResult["result"] = results;
   FinalResult["counter"] = counter;
+  console.log(FinalResult);
   return FinalResult;
 }
 
+//faccio diventare invisibile il bottone search per evitare la sovrapposizione/duplicazione di elementi
+function disapperSearch() {
+  const buttonSearch = document.querySelector("input[type='button']");
+  buttonSearch.disabled = true;
+  buttonSearch.style.cssText = "filter: opacity(0.2)";
+}
+
+//stampo i risultati su schermo, counter e lavori disponibili
 function showResults() {
+  disapperSearch();
   const title = document.querySelector("input[name ='title']").value;
   const location = document.querySelector("input[name = 'location']").value;
   const worksAndCounter = searchPosition(title, location);
   let mainDiv = document.querySelector("div[class='flexbox']");
+  /*Stampo elementi vettore*/
   for (const work of worksAndCounter.result) {
     let newElement = document.createElement("div");
     newElement.innerText = work;
     mainDiv.appendChild(newElement);
   }
+  /*Stampo counter*/
+  const number = document.createElement("p");
+  number.classList.add("number");
+  number.innerText = worksAndCounter.counter;
+  /*se il valore è 0 faccina triste*/
+  if (number.innerText == "0") {
+    number.innerText = ":(";
+  }
+  document.body.prepend(number);
 }
 
-const maria = searchPosition("dev", "us");
-console.log(maria.result[0]);
+/*resetto le textbox e l'oggetto contente i lavori e il counter*/
+function erase() {
+  title = "";
+  location = "";
+  FinalResult = {};
+}
