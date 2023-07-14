@@ -101,7 +101,6 @@ function searchPosition(titleUser, locationUser) {
   }
   FinalResult["result"] = results;
   FinalResult["counter"] = counter;
-  console.log(FinalResult);
   return FinalResult;
 }
 
@@ -115,9 +114,9 @@ function disapperSearch() {
 //stampo i risultati su schermo, counter e lavori disponibili
 function showResults() {
   disapperSearch();
-  const title = document.querySelector("input[name ='title']").value;
-  const location = document.querySelector("input[name = 'location']").value;
-  const worksAndCounter = searchPosition(title, location);
+  const title = document.querySelector("input[name ='title']").value; //queste conviene lasciarle fuori così le riutilizzo
+  const location = document.querySelector("input[name = 'location']").value; //INOLTRE è prorpio un errore perchè ovviamente tutto questo rimane all'interno della funzione
+  const worksAndCounter = searchPosition(title, location); //e non posso richiamarlo
   let mainDiv = document.querySelector("div[class='flexbox']");
   /*Stampo elementi vettore*/
   for (const work of worksAndCounter.result) {
@@ -139,6 +138,6 @@ function showResults() {
 /*resetto le textbox e l'oggetto contente i lavori e il counter*/
 function erase() {
   title = "";
-  location = "";
+  location = ""; //mi resetta la pagina perchè windows.location ="stringa vuota" cerca e resetta la pagina FIGOHH
   FinalResult = {};
 }
